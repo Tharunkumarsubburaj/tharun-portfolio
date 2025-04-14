@@ -1,0 +1,2250 @@
+
+:root
+{
+    --clr-Artist-Blue-80:rgba(2, 43, 58, 0.8);
+    --clr-Artist-Blue:rgb(2, 43, 58);
+    /* --clr-Bermuda:rgba(31, 122, 140); */
+    --clr-Bermuda:rgba(32, 97, 110, 0.5);
+    --clr-Oh-Boy:rgb(191, 219, 247);
+    --clr-Crystal-Falls:rgb(225, 229, 242);
+    --clr-Crystal-Falls-80:rgba(225, 229, 242, 0.8);
+    --clr-Crystal-Falls-50:rgba(225, 229, 242, 0.5);
+    --clr-Crystal-Falls-10:rgba(225, 229, 242, 0.1);
+    --clr-white:rgb(255, 255, 255);
+}
+
+
+@font-face {
+    font-family: Agustina Regular;
+    src: url("./fonts/Agustina.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Agustina Regular;
+    font-weight: bold;
+    src: url("./fonts/Agustina.otf") format("opentype");
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration-line: none;
+    transition: 0.3s;
+    scrollbar-color:var(--clr-Bermuda)  var(--clr-Artist-Blue) ;
+    scrollbar-width: thin;
+}
+
+/* ==================================================================== animation ======================================================================= */
+
+@keyframes move-text {
+    0% 
+    {
+        right: 0%;
+    }
+    40%
+    {
+        right: 30%;
+    }
+    60%,80%
+    {
+        right: 60%;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes slider {
+    0% 
+    {
+        width: 0%;
+    }
+    100% 
+    {
+        width: 100%;
+    }
+}
+
+@keyframes movecurser
+{
+    0% 
+    {
+        left: 0%;
+    }
+    40%,60%
+    {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+/* ==================================================================== animation ======================================================================= */
+
+/* body style */
+
+body
+{
+    font-family: poppins, sans-serif;
+    color: var(--clr-Crystal-Falls);
+    background: linear-gradient(var(--clr-Artist-Blue), var(--clr-Artist-Blue));
+    -webkit-user-select: none; /* Safari */ 
+    -moz-user-select: none; /* Firefox */ 
+    -ms-user-select: none; /* Internet Explorer/Edge */ 
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */ 
+}
+
+/* ==================================================================== max-width:767px  style ======================================================================= */
+
+@media (max-width:767px)
+{
+    .navbar
+    {
+        display: flex;
+        background-color: var(--clr-Bermuda);
+        align-items: center;
+        justify-items: center;
+        width: 100%;
+        position: fixed;
+        backdrop-filter: blur(1rem);
+        z-index: 100;
+    }
+
+    .logo
+    {
+        display: flex;
+        align-self: flex-start;
+        width: 70%;
+    }
+
+    .logo a
+    {
+        color: white;
+        font-size: 2rem;
+        margin-left: 1rem;
+        font-family:'Agustina Regular';
+    }
+
+    .menu
+    {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        gap: 2.5rem;
+        margin: 10% 0 4% 0;
+        /* transition: slider ; */
+    }
+
+    .menuelements
+    {
+        right: 0%;
+        color: rgba(255, 255, 255, 0.8);
+        transition: move-text 5s;
+        animation:  transition ease-in-out;
+    }
+    .menubtn
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .2rem;
+        margin: 1.5rem 0;
+        cursor: pointer;
+        position: absolute;
+        top:1%;
+        right: 2%;
+    }
+
+    .menuline
+    {
+        height: .2rem;
+        width: 1.8rem;
+        gap: 1rem;
+        background-color: white;
+    }
+
+    .active
+    {
+        display: flex;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logoboxhide
+    {
+        width: 0;
+    }
+
+    .logohide
+    {
+        display: none;
+    }
+
+    /* ================================================================== home page style ===================================================================== */
+
+    .home
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 90%;
+    }
+
+    .homecontainer
+    {
+        width: 100%;
+        overflow: hidden;
+        padding: 5%;
+        border-radius: 2rem;
+    }
+
+    .homecontent
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .text
+    {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        color: rgb(64, 112, 244);
+        font-size: 2rem;
+    }
+
+    .first-text
+    {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .second-text::before
+    {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-left: rgb(64, 112, 244) solid .2rem;
+        background-color: var(--clr-Artist-Blue);
+        z-index: 1;
+        animation: movecurser 4s steps(12) infinite;
+    }
+
+    .homelink
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2%;
+        padding: 2%;
+        gap: 1rem;
+        gap: 1rem;
+    }
+
+    .homelinks
+    {
+        padding: 5%;
+        border-radius: 2rem;
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(1px);
+    }
+
+    /* ================================================================== about page style ===================================================================== */
+
+    .about
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: var(--clr-Bermuda);
+        padding: 10% 2%;
+    }
+
+    .abouttopic
+    {
+        font-size: 1.8rem;
+    }
+
+    .aboutcontent
+    {
+        display: grid;
+        grid-template-columns: repeat( 1 , 1fr);
+        margin: 3% 9%;
+        gap: 2rem;
+    }
+
+    .abouttext
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .abouttext > button
+    {
+        align-self: flex-start;
+        padding: 2.9%;
+        border-radius: .5em;
+        outline: none;
+        border: none;
+        color: #000000;
+    }
+
+    .abouttext > button:hover
+    {
+        color: #000000;
+        transition: .8s;
+        transform: scale(1.1);
+    }
+
+    .aboutphoto
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aboutphoto img
+    {
+        border-radius: 10%;
+    }
+
+    /* ================================================================== skill page style ===================================================================== */
+
+    .skill
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1% 10%;
+    }
+
+    .skilltopic
+    {
+        font-size: 1.8rem;
+    }
+
+    .skilltype
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 2rem;
+        margin: 2% 0;
+    }
+
+    .skillimg
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 5rem;
+        color: var(--clr-Crystal-Falls-80);
+    }
+
+    .skillimg:hover
+    {
+        color: var(--clr-white);
+        transition: 1s;
+    }
+
+    .skillimgname
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.2rem;
+    }
+
+    /* ================================================================== qualification page style ===================================================================== */
+
+    .qualification
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-Bermuda);
+
+    }
+
+    .qualificationmainbox
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        gap: 1rem;
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        border: var(--clr-Crystal-Falls-80) solid 0.1rem;
+        border-radius: 2rem;
+        margin: 5.2%;
+        
+    }
+
+    .qualificationbox
+    {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        gap: .8rem;
+        padding: 1.5% 4%;
+    }
+
+    .qualificationbox > h1
+    {
+        font-size: 1.8rem;
+        font-weight: 600;
+        width: 100%;
+    }
+
+    .qualificationbox > i
+    {
+        font-size: 2rem;
+        background-color: var(--clr-Artist-Blue);
+        padding: 1.5%;
+        border-radius: 1.2rem;
+    }
+    
+    .qualificationtype
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        gap: 2rem;
+        margin: 0 0 5% 0;
+        
+    }
+
+    .qualificationcontent
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: .5rem;
+        padding: 1.5%;
+        border-radius: 0 1rem  1rem 0;
+        border: var(--clr-Crystal-Falls-80) solid 0.1rem;
+        border-left: var(--clr-Crystal-Falls-80) solid 0.3rem;
+        box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+        position: relative;
+        
+    }
+    
+    .qualificationcontent::before
+    {
+        content: '';
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 100%;
+        top: -0.5rem;
+        left: -0.5rem;
+        background-color: var(--clr-Crystal-Falls);
+
+    }
+
+    .qualificationimgname > h2
+    {
+        color: var(--clr-Crystal-Falls-80);
+        font-size: 1.45rem;
+    }
+
+    .qualificationimgname > a
+    {
+        color: var(--clr-Crystal-Falls-80);
+        font-size: 1rem;
+    }
+
+    .qualificationimgname > a:hover
+    {
+        color: var(--clr-white);
+        transition: .8s;
+        text-decoration-line: underline;
+    }
+
+    /* ================================================================== project page style ===================================================================== */
+
+    .project
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10% 1%;
+    }
+
+    .projectstopic
+    {
+        font-size: 1.8rem;
+    }
+
+    .projectscard
+    {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        padding: 2% 0;
+        gap: 1.2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .leftbutton > button
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: 1rem;
+        border-radius: 100%;
+    }
+
+    .projectcardelements
+    {
+        display: flex;
+        gap: 1.5rem;
+        max-width: 90vw;
+        overflow: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+
+    .projectscardcontent
+    {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 100%;
+        max-width: 50rem;
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        border-radius: 1rem;
+        border: var(--clr-Crystal-Falls) solid 0.1rem;
+    }
+
+    .projectscardimg
+    {
+        display: flex;
+        max-width: 41.8rem;
+        height: 16rem;
+        object-fit:contain;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .projectscardimg > img
+    {
+        width: 100%;
+        height: 100%;
+        min-width: auto;
+        border-radius: 1rem  1rem 0 0;
+    }
+
+    .projectscardtext
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 2% 5%;
+        }
+
+    .projectscardtext > a
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: .6em ;
+        margin: 0 23%;
+        text-align: center;
+        border-radius: 1rem;
+    }
+
+    .projectscardtext > a:hover
+    {
+        text-decoration-line: underline;
+    }
+
+
+    .rightbutton > button
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: 1rem;
+        border-radius: 100%;
+    }
+
+    .projectscardtext > a > i
+    {
+        transform: rotatez(-40deg);
+    }
+
+    .navigatebutton
+    {
+        display: flex;
+        gap: 1rem;
+    }
+
+    /* ================================================================== contact page style ===================================================================== */
+
+
+    .contact
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: var(--clr-Bermuda);
+        padding: 10% 2%;
+        gap: 5rem;
+    }
+
+    .contactmainbox
+    {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contacttopic
+    {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .contacttopic > p
+    {
+        font-size: 1.2rem;
+    }
+
+    .contactform
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        padding: 5%;
+        width: 85%;
+        border-radius: 1rem;
+        border: var(--clr-Crystal-Falls) solid 0.1rem;
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2);     
+    }
+
+    .contactform > form
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contactform > form > input
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        color: var(--clr-Crystal-Falls);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 4rem;
+        border: 0;
+        padding: .6em ;
+        border-radius: 1rem;
+        text-decoration: var(--clr-Crystal-Falls);
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2); 
+    }
+
+    .contactform > form > textarea
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        color: var(--clr-Crystal-Falls);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 10rem;
+        font-family: poppins, sans-serif;
+        border: 0;
+        padding: .6em ;
+        border-radius: 1rem;
+        text-decoration: var(--clr-Crystal-Falls);
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2);
+    }
+
+    .contactform > form > input::placeholder,textarea::placeholder
+    {
+        color: var(--clr-Crystal-Falls-80);
+    }
+
+    .contactform > form > button
+    {
+        background-color: var(--clr-Artist-Blue-80);
+        color: var(--clr-Crystal-Falls-80);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 4rem;
+        border: 0;
+        padding: .6em ;
+        text-align: center;
+        border-radius: 1rem;
+    }
+
+    .contactform > form > button:hover
+    {
+        background-color: var(--clr-Artist-Blue);
+        color: var(--clr-Crystal-Falls);
+    }
+
+    /* ================================================================== copyrights page style ===================================================================== */
+
+    .copyright
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-Bermuda);
+    }
+
+    .copyrigthsmainbox
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+    }
+
+    .copyrigthsmainbox > h1,a,p
+    {
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.1rem;
+    }
+
+    .copyrightsparts1
+    {
+        display: grid;
+        grid-template-rows:repeat(3,1fr);
+        gap: 1rem;
+        width: 100%;
+        padding: 1% 2%;
+
+    }
+
+    .copyrightstop
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+    }
+
+    .contactlogobottom
+    {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.4rem;
+    }
+
+    .copyrightstopelements
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        font-size: .8rem;
+    }
+
+    .bottomline
+    {
+        width: 100%;
+        border: var(--clr-Crystal-Falls-10) thin 1px;
+    }
+
+    .copyrightsparts2
+    {
+        padding: 2% 3%;
+    }
+
+    .copyrightsparts2 > p
+    {
+        font-size: 1rem;
+    }
+
+
+
+}
+
+/* ==================================================================== min-width: 768px style ======================================================================= */
+
+@media (min-width:768px) and (max-width:1020px)
+ {
+
+    /* ================================================================== navbar page style ===================================================================== */
+
+    .navbar
+    {
+        display: flex;
+        background-color: var(--clr-Bermuda);
+        width: 100%;
+        align-items: center;
+        justify-items: center;
+        position: fixed;
+        padding: 0 1.2rem;
+        backdrop-filter: blur(1rem);
+        z-index: 100;
+    }
+
+    .logo
+    {
+        width: 100%;
+    }
+
+    .logo a
+    {
+        color: white;
+        text-decoration-line: none;
+        height: 2ren;
+        font-size: 2rem;
+        margin-top: 1%;
+        margin-left: 2%;
+        margin-bottom: -1.5%;
+        font-family:'Agustina Regular';
+    }
+
+    .menu
+    {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2.5%;
+        min-height: 100%;
+        width: 100%;
+    }
+
+    .menu a
+    {
+        position: relative;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .menuelements:hover:before
+    {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.15rem;
+        background-color: white;
+        bottom: -0.3rem;
+        left: 0;
+        animation: slider 0.8s linear;
+    }
+
+    .menubtn
+    {
+        display: none;
+        flex-direction: column;
+        top: 1%;
+        right: 0;
+        gap: .2rem;
+        margin: 0 .5%;
+        cursor: pointer;
+    }
+
+    .menuline
+    {
+        height: .2rem;
+        width: 1.8rem;
+        gap: 1rem;
+        margin: 0 0 0 1rem;
+        background-color: white;
+    }
+
+    .active
+    {
+        display: flex;
+    }
+
+    /* ================================================================== home page style ===================================================================== */
+
+    .home
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        text-decoration: none;
+        /* padding-top: 5%; */
+    }
+
+    .homecontainer
+    {
+        padding: 5%;
+        border-radius: 2rem;
+        width: 100%;
+    }
+
+    .homecontent
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .text
+    {
+        position: relative;
+        color: rgb(64, 112, 244);
+        font-size: 3rem;
+    }
+
+    .first-text
+    {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .second-text::before
+    {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-left: rgb(64, 112, 244) solid .2rem;
+        background-color: var(--clr-Artist-Blue);
+        z-index: 1;
+        animation: movecurser 4s steps(12) infinite;
+    }
+
+    .homelink
+    {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2%;
+    }
+
+    .homelinks
+    {
+        padding: 1.5%;
+        border-radius: 2rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(1rem);
+    }
+
+    .homelinks:hover
+    {
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: .8s;
+        transform: scale(1.1);
+    }
+
+    .homelink > a
+    {
+        color: white;
+    }
+
+    /* ================================================================== about page style ===================================================================== */
+
+    .about
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 65vh;
+        background-color: var(--clr-Bermuda);
+        padding-top: 5%;
+    }
+
+    .abouttopic
+    {
+        font-size: 2rem;
+    }
+
+    .aboutcontent
+    {
+        display: grid;
+        grid-template-columns: repeat( 2 , 1fr);
+        margin: 3% 9%;
+    }
+
+    .abouttext
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .abouttext > button
+    {
+        align-self: flex-start;
+        padding: 2.9%;
+        border-radius: .5em;
+        outline: none;
+        border: none;
+        color: #000000;
+    }
+
+    .abouttext > button:hover
+    {
+        color: #000000;
+        transition: .8s;
+        transform: scale(1.1);
+    }
+
+    .aboutphoto
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aboutphoto img
+    {
+        border-radius: 10%;
+    }
+
+    /* ================================================================== skill page style ===================================================================== */
+
+    .skill
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        margin: 1% 10%;
+    }
+
+    .skilltopic
+    {
+        font-size: 2rem;
+    }
+
+    .skilltype
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        gap: 2rem;
+        margin: 2% 0;
+    }
+
+    .skillimg
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 5rem;
+        color: var(--clr-Crystal-Falls-80);
+    }
+
+    .skillimg:hover
+    {
+        color: var(--clr-white);
+        transition: 1s;
+    }
+
+    .skillimgname
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.2rem;
+    }
+
+    /* ================================================================== qualification page style ===================================================================== */
+
+    .qualification
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-Bermuda);
+    }
+
+    .qualificationmainbox
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        gap: 1rem;
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        border: var(--clr-Crystal-Falls-80) solid 0.1rem;
+        border-radius: 2rem;
+        margin: 5.2%;
+        
+    }
+
+    .qualificationbox
+    {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        gap: .8rem;
+        padding: 1.5% 4%;
+    }
+
+    .qualificationbox > h1
+    {
+        font-size: 2rem;
+        font-weight: 600;
+        width: 100%;
+    }
+
+    .qualificationbox > i
+    {
+        font-size: 2rem;
+        background-color: var(--clr-Artist-Blue);
+        padding: 1.5%;
+        border-radius: 1.2rem;
+    }
+    
+    .qualificationtype
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        gap: 2rem;
+        margin: 0 0 5% 0;
+        
+    }
+
+    .qualificationcontent
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 2rem;
+        padding: 1.5% 4%;
+        border-radius: 0 1rem  1rem 0;
+        border: var(--clr-Crystal-Falls-80) solid 0.1rem;
+        border-left: var(--clr-Crystal-Falls-80) solid 0.3rem;
+        box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+    
+    .qualificationcontent::before
+    {
+        content: '';
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 100%;
+        top: -0.5rem;
+        left: -0.5rem;
+        background-color: var(--clr-Crystal-Falls);
+
+    }
+
+    .qualificationimgname > a
+    {
+        color: var(--clr-Crystal-Falls-80);
+        font-size: 1.1rem;
+    }
+
+    .qualificationimgname > a:hover
+    {
+        color: var(--clr-white);
+        transition: .8s;
+        text-decoration-line: underline;
+    }
+
+    /* ================================================================== project page style ===================================================================== */
+
+    .project
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5% 0%;
+    }
+
+    .projectstopic
+    {
+        font-size: 2rem;
+    }
+
+    .projectscard
+    {
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        padding: 2% 0;
+        gap: 1.2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .leftbutton > button
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: 1rem;
+        border-radius: 100%;
+    }
+
+    .projectcardelements
+    {
+        display: flex;
+        gap: 1.5rem;
+        max-width: 90vw;
+        overflow: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+
+    .projectscardcontent
+    {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 48%;
+        max-width: 50rem;
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        border-radius: 1rem;
+        border: var(--clr-Crystal-Falls) solid 0.1rem;
+    }
+
+    .projectscardimg
+    {
+        display: flex;
+        max-width: 31rem;
+        height: 20rem;
+        object-fit:contain;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .projectscardimg > img:hover
+    {
+        transform: scale(1.1);
+    }
+
+    .projectscardimg > img
+    {
+        width: 100%;
+        height: 100%;
+        min-width: auto;
+        border-radius: 1rem  1rem 0 0;
+    }
+
+    .projectscardtext
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 2% 5%;
+        }
+
+    .projectscardtext > a
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: .6em ;
+        margin: 0 23%;
+        text-align: center;
+        border-radius: 1rem;
+    }
+
+    .projectscardtext > a:hover
+    {
+        text-decoration-line: underline;
+    }
+
+
+    .rightbutton > button
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: 1rem;
+        border-radius: 100%;
+    }
+
+    .projectscardtext > a > i
+    {
+        transform: rotatez(-40deg);
+    }
+
+    .navigatebutton
+    {
+        display: flex;
+        gap: 1rem;
+    }
+
+    /* ================================================================== contact page style ===================================================================== */
+
+
+    .contact
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: var(--clr-Bermuda);
+        padding: 5% 2%;
+        gap: 5rem;
+    }
+
+    .contactmainbox
+    {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contacttopic
+    {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .contacttopic > p
+    {
+        font-size: 1.5rem;
+    }
+
+    .contactform
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        padding: 5%;
+        width: 70%;
+        border-radius: 1rem;
+        border: var(--clr-Crystal-Falls) solid 0.1rem;
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2);     
+    }
+
+    .contactform > form
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contactform > form > input
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        color: var(--clr-Crystal-Falls);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 4rem;
+        border: 0;
+        padding: .6em ;
+        border-radius: 1rem;
+        text-decoration: var(--clr-Crystal-Falls);
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2); 
+    }
+
+    .contactform > form > textarea
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        color: var(--clr-Crystal-Falls);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 10rem;
+        font-family: poppins, sans-serif;
+        border: 0;
+        padding: .6em ;
+        border-radius: 1rem;
+        text-decoration: var(--clr-Crystal-Falls);
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2);
+    }
+
+    .contactform > form > input::placeholder,textarea::placeholder
+    {
+        color: var(--clr-Crystal-Falls-80);
+    }
+
+    .contactform > form > button
+    {
+        background-color: var(--clr-Artist-Blue-80);
+        color: var(--clr-Crystal-Falls-80);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 4rem;
+        border: 0;
+        padding: .6em ;
+        text-align: center;
+        border-radius: 1rem;
+    }
+
+    .contactform > form > button:hover
+    {
+        background-color: var(--clr-Artist-Blue);
+        color: var(--clr-Crystal-Falls);
+    }
+
+    /* ================================================================== copyrights page style ===================================================================== */
+
+    .copyright
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-Bermuda);
+    }
+
+    .copyrigthsmainbox
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    .copyrigthsmainbox > h1,a,p
+    {
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.1rem;
+    }
+
+    .copyrightsparts1
+    {
+        display: grid;
+        grid-template-columns:4fr repeat(2,1fr);
+        gap: 1rem;
+        width: 100%;
+        padding: 1% 2%;
+
+    }
+
+    .copyrightstop
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+    }
+
+    .contactlogobottom
+    {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .copyrightstopelements
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        font-size: 1.1rem;
+    }
+
+    .bottomline
+    {
+        width: 100%;
+        border: var(--clr-Crystal-Falls-10) thin 1px;
+    }
+
+    .copyrightsparts2
+    {
+        padding: 2% 3%;
+    }
+
+ }
+
+/* ==================================================================== min-width: 768px style ======================================================================= */
+
+
+/* ==================================================================== min-width:1021px style ======================================================================= */
+
+@media (min-width:1021px)
+{
+
+    /* ================================================================== navbar page style ===================================================================== */
+
+    .navbar
+    {
+        display: flex;
+        background-color: var(--clr-Bermuda);
+        width: 100%;
+        align-items: center;
+        justify-items: center;
+        position: fixed;
+        padding: 0 1.2rem;
+        backdrop-filter: blur(1rem);
+        z-index: 100;
+    }
+
+    .logo
+    {
+        width: 100%;
+    }
+
+    .logo a
+    {
+        color: white;
+        text-decoration-line: none;
+        height: 2ren;
+        font-size: 2rem;
+        margin-top: 1%;
+        margin-left: 2%;
+        margin-bottom: -1.5%;
+        font-family:'Agustina Regular';
+    }
+
+    .menu
+    {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2.5%;
+        min-height: 100%;
+        width: 100%;
+    }
+
+    .menu a
+    {
+        position: relative;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .menuelements:hover:before
+    {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 0.15rem;
+        background-color: white;
+        bottom: -0.3rem;
+        left: 0;
+        animation: slider 0.8s linear;
+    }
+
+    .menubtn
+    {
+        display: none;
+        flex-direction: column;
+        top: 1%;
+        right: 0;
+        gap: .2rem;
+        margin: 0 .5%;
+        cursor: pointer;
+    }
+
+    .menuline
+    {
+        height: .2rem;
+        width: 1.8rem;
+        gap: 1rem;
+        margin: 0 0 0 1rem;
+        background-color: white;
+    }
+
+    .active
+    {
+        display: flex;
+    }
+
+    /* ================================================================== home page style ===================================================================== */
+
+    .home
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        text-decoration: none;
+        /* padding-top: 5%; */
+    }
+
+    .homecontainer
+    {
+        padding: 5%;
+        border-radius: 2rem;
+        width: 100%;
+    }
+
+    .homecontent
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .text
+    {
+        position: relative;
+        color: rgb(64, 112, 244);
+        font-size: 3rem;
+    }
+
+    .first-text
+    {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .second-text::before
+    {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-left: rgb(64, 112, 244) solid .2rem;
+        background-color: var(--clr-Artist-Blue);
+        z-index: 1;
+        animation: movecurser 4s steps(12) infinite;
+    }
+
+    .homelink
+    {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2%;
+    }
+
+    .homelinks
+    {
+        padding: 1.5%;
+        border-radius: 2rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(1rem);
+    }
+
+    .homelinks:hover
+    {
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: .8s;
+        transform: scale(1.1);
+    }
+
+    .homelink > a
+    {
+        color: white;
+    }
+
+    /* ================================================================== about page style ===================================================================== */
+
+    .about
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 65vh;
+        background-color: var(--clr-Bermuda);
+        padding-top: 5%;
+    }
+
+    .abouttopic
+    {
+        font-size: 2rem;
+    }
+
+    .aboutcontent
+    {
+        display: grid;
+        grid-template-columns: repeat( 2 , 1fr);
+        margin: 3% 9%;
+    }
+
+    .abouttext
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .abouttext > button
+    {
+        align-self: flex-start;
+        padding: 2.9%;
+        border-radius: .5em;
+        outline: none;
+        border: none;
+        color: #000000;
+    }
+
+    .abouttext > button:hover
+    {
+        color: #000000;
+        transition: .8s;
+        transform: scale(1.1);
+    }
+
+    .aboutphoto
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .aboutphoto img
+    {
+        border-radius: 10%;
+    }
+
+    /* ================================================================== skill page style ===================================================================== */
+
+    .skill
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 30vh;
+        margin: 1% 10%;
+    }
+
+    .skilltopic
+    {
+        font-size: 2rem;
+    }
+
+    .skilltype
+    {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        gap: 2rem;
+        margin: 2% 0;
+    }
+
+    .skillimg
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 5rem;
+        color: var(--clr-Crystal-Falls-80);
+    }
+
+    .skillimg:hover
+    {
+        color: var(--clr-white);
+        transition: 1s;
+    }
+
+    .skillimgname
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.2rem;
+    }
+
+    /* ================================================================== qualification page style ===================================================================== */
+
+    .qualification
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-Bermuda);
+    }
+
+    .qualificationmainbox
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        gap: 1rem;
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        border: var(--clr-Crystal-Falls-80) solid 0.1rem;
+        border-radius: 2rem;
+        margin: 5.2%;
+        
+    }
+
+    .qualificationbox
+    {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        gap: .8rem;
+        padding: 1.5% 4%;
+    }
+
+    .qualificationbox > h1
+    {
+        font-size: 2rem;
+        font-weight: 600;
+        width: 100%;
+    }
+
+    .qualificationbox > i
+    {
+        font-size: 2rem;
+        background-color: var(--clr-Artist-Blue);
+        padding: 1.5%;
+        border-radius: 1.2rem;
+    }
+    
+    .qualificationtype
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        gap: 2rem;
+        margin: 0 0 5% 0;
+        
+    }
+
+    .qualificationcontent
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 2rem;
+        padding: 1.5% 4%;
+        border-radius: 0 1rem  1rem 0;
+        border: var(--clr-Crystal-Falls-80) solid 0.1rem;
+        border-left: var(--clr-Crystal-Falls-80) solid 0.3rem;
+        box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+        position: relative;
+    }
+    
+    .qualificationcontent::before
+    {
+        content: '';
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 100%;
+        top: -0.5rem;
+        left: -0.5rem;
+        background-color: var(--clr-Crystal-Falls);
+
+    }
+
+    .qualificationimgname > a
+    {
+        color: var(--clr-Crystal-Falls-80);
+        font-size: 1.1rem;
+    }
+
+    .qualificationimgname > a:hover
+    {
+        color: var(--clr-white);
+        transition: .8s;
+        text-decoration-line: underline;
+    }
+
+    /* ================================================================== project page style ===================================================================== */
+
+    .project
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5% 1%;
+    }
+
+    .projectstopic
+    {
+        font-size: 2rem;
+    }
+
+    .projectscard
+    {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 2% 0;
+        gap: 1.2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .leftbutton > button
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: 1rem;
+        border-radius: 100%;
+    }
+
+    .projectcardelements
+    {
+        display: flex;
+        gap: 1.5rem;
+        max-width: 90vw;
+        overflow: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+
+    .projectscardcontent
+    {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 32.1%;
+        max-width: 50rem;
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        border-radius: 1rem;
+        border: var(--clr-Crystal-Falls) solid 0.1rem;
+    }
+
+    .projectscardimg
+    {
+        display: flex;
+        max-width: 31rem;
+        height: 20rem;
+        object-fit:contain;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .projectscardimg > img:hover
+    {
+        transform: scale(1.1);
+    }
+
+    .projectscardimg > img
+    {
+        width: 100%;
+        height: 100%;
+        min-width: auto;
+        border-radius: 1rem  1rem 0 0;
+    }
+
+    .projectscardtext
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        padding: 2% 5%;
+        }
+
+    .projectscardtext > a
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: .6em ;
+        margin: 0 23%;
+        text-align: center;
+        border-radius: 1rem;
+    }
+
+    .projectscardtext > a:hover
+    {
+        text-decoration-line: underline;
+    }
+
+
+    .rightbutton > button
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        backdrop-filter: blur(1rem);
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.5rem;
+        outline: none;
+        border: 0;
+        padding: 1rem;
+        border-radius: 100%;
+    }
+
+    .projectscardtext > a > i
+    {
+        transform: rotatez(-40deg);
+    }
+
+    .navigatebutton
+    {
+        display: flex;
+        gap: 1rem;
+    }
+
+    /* ================================================================== contact page style ===================================================================== */
+
+
+    .contact
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: var(--clr-Bermuda);
+        padding: 5% 2%;
+        gap: 5rem;
+    }
+
+    .contactmainbox
+    {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contacttopic
+    {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .contacttopic > p
+    {
+        font-size: 1.5rem;
+    }
+
+    .contactform
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        padding: 5%;
+        width: 55%;
+        border-radius: 1rem;
+        border: var(--clr-Crystal-Falls) solid 0.1rem;
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2);     
+    }
+
+    .contactform > form
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contactform > form > input
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        color: var(--clr-Crystal-Falls);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 4rem;
+        border: 0;
+        padding: .6em ;
+        border-radius: 1rem;
+        text-decoration: var(--clr-Crystal-Falls);
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2); 
+    }
+
+    .contactform > form > textarea
+    {
+        background-color: var(--clr-Crystal-Falls-10);
+        color: var(--clr-Crystal-Falls);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 10rem;
+        font-family: poppins, sans-serif;
+        border: 0;
+        padding: .6em ;
+        border-radius: 1rem;
+        text-decoration: var(--clr-Crystal-Falls);
+        box-shadow: 1rem 1rem 7rem  rgba(0, 0, 0, 0.2);
+    }
+
+    .contactform > form > input::placeholder,textarea::placeholder
+    {
+        color: var(--clr-Crystal-Falls-80);
+    }
+
+    .contactform > form > button
+    {
+        background-color: var(--clr-Artist-Blue-80);
+        color: var(--clr-Crystal-Falls-80);
+        outline: none;
+        font-size: 1.2rem;
+        width: 100%;
+        height: 4rem;
+        border: 0;
+        padding: .6em ;
+        text-align: center;
+        border-radius: 1rem;
+    }
+
+    .contactform > form > button:hover
+    {
+        background-color: var(--clr-Artist-Blue);
+        color: var(--clr-Crystal-Falls);
+    }
+
+    /* ================================================================== copyrights page style ===================================================================== */
+
+    .copyright
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--clr-Bermuda);
+    }
+
+    .copyrigthsmainbox
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    .copyrigthsmainbox > h1,a,p
+    {
+        color: var(--clr-Crystal-Falls);
+        font-size: 1.1rem;
+    }
+
+    .copyrightsparts1
+    {
+        display: grid;
+        grid-template-columns:4fr repeat(2,1fr);
+        gap: 1rem;
+        width: 100%;
+        padding: 1% 2%;
+
+    }
+
+    .copyrightstop
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+    }
+
+    .contactlogobottom
+    {
+        display: flex;
+        gap: 1rem;
+        font-size: 1.3rem;
+    }
+
+    .copyrightstopelements
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        font-size: 1.1rem;
+    }
+
+    .bottomline
+    {
+        width: 100%;
+        border: var(--clr-Crystal-Falls-10) thin 1px;
+    }
+
+    .copyrightsparts2
+    {
+        padding: 2% 3%;
+    }
+
+}
+
+
+
+/* media screen size 
+
+max-width:767px  //mobile
+min-width:768px to max-width:1020px   //tablet
+min-width:1021px   //for laptop
+
+*/
